@@ -1,18 +1,13 @@
 image:
   repository: docker.io/ansuca/gitops-sample
-  tag: "latest"
+  tag: "775442deef14fc4f7dd56c957f6afb94dd3da763"
   pullPolicy: IfNotPresent
-
 replicaCount: 1
-
 service:
   type: ClusterIP
   port: 8080
-
 resources: {}
-
 env: []
-
 ingress:
   enabled: false
   className: ""
