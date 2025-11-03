@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gitops-sample
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/AnSuCa/GitOps.git
+    targetRevision: main
+    path: charts/gitops-sample
+    helm:
+      valueFiles: []
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: gitops-sample
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
